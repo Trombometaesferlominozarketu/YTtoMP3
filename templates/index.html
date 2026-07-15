@@ -1,17 +1,14 @@
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>YT to MP3 | De Luxe Station</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
@@ -24,21 +21,26 @@ padding:0;
 box-sizing:border-box;
 }
 
-html,
-body{
+html,body{
+
 width:100%;
 height:100%;
-overflow:hidden;
+
 font-family:'Oswald',sans-serif;
+
+overflow:hidden;
+
 }
 
 body{
 
-background:url("/static/background.webp") center center no-repeat;
+background:url("/static/background.webp");
 
 background-size:cover;
 
-position:relative;
+background-position:center center;
+
+background-repeat:no-repeat;
 
 display:flex;
 
@@ -46,9 +48,9 @@ justify-content:center;
 
 align-items:center;
 
-}
+position:relative;
 
-/* Oscurece un poco el fondo */
+}
 
 body::before{
 
@@ -58,53 +60,47 @@ position:absolute;
 
 inset:0;
 
-background:
-
-linear-gradient(
+background:linear-gradient(
 
 180deg,
 
-rgba(0,0,0,.10),
+rgba(0,0,0,.08),
 
-rgba(0,0,0,.28),
+rgba(0,0,0,.18),
 
-rgba(0,0,0,.42)
+rgba(0,0,0,.32),
+
+rgba(0,0,0,.48)
 
 );
 
-backdrop-filter:blur(1px);
-
 }
-
-/************************************************
-
-LOGO
-
-************************************************/
 
 .logo{
 
 position:absolute;
 
-top:40px;
-
 left:50%;
+
+top:35px;
 
 transform:translateX(-50%);
 
-z-index:50;
+z-index:100;
 
 text-align:center;
+
+width:100%;
 
 }
 
 .logo h1{
 
-font-size:110px;
+font-size:108px;
 
 font-weight:700;
 
-letter-spacing:3px;
+letter-spacing:2px;
 
 line-height:1;
 
@@ -116,13 +112,13 @@ linear-gradient(
 
 #ffffff,
 
-#efefef 22%,
+#ececec 20%,
 
-#bdbdbd 38%,
+#bbbbbb 40%,
 
 #4f4f4f 50%,
 
-#dadada 62%,
+#d9d9d9 60%,
 
 #ffffff 100%
 
@@ -134,23 +130,23 @@ linear-gradient(
 
 filter:
 
-drop-shadow(0 2px 0 white)
+drop-shadow(0 3px 1px white)
 
-drop-shadow(0 4px 4px rgba(0,0,0,.65));
+drop-shadow(0 7px 8px rgba(0,0,0,.55));
 
 }
 
-.logo h1 span{
+.logo span{
 
 font-family:'Pacifico',cursive;
 
-font-size:70px;
+font-size:68px;
 
-margin:0 12px;
+margin:0 14px;
 
-color:#cf4424;
+color:#cf4323;
 
--webkit-text-fill-color:#cf4424;
+-webkit-text-fill-color:#cf4323;
 
 }
 
@@ -158,67 +154,85 @@ color:#cf4424;
 
 margin-top:12px;
 
-font-size:40px;
+font-size:42px;
 
 font-family:'Pacifico',cursive;
 
-color:#ffe5a4;
+color:#ffe5a5;
 
 text-shadow:
 
-0 0 20px rgba(255,200,120,.35),
+0 0 20px rgba(255,180,70,.45),
 
-0 3px 5px rgba(0,0,0,.55);
+0 2px 5px rgba(0,0,0,.7);
 
 }
 
 .creator{
 
-margin-top:16px;
+margin-top:18px;
 
 font-size:18px;
 
-letter-spacing:5px;
-
 font-weight:600;
+
+letter-spacing:5px;
 
 color:white;
 
 text-transform:uppercase;
 
-text-shadow:0 2px 8px black;
+text-shadow:
+
+0 2px 8px black;
 
 }
-
-/************************************************
-
-PANEL
-
-************************************************/
 
 .panel{
 
 position:relative;
 
-z-index:20;
+z-index:50;
 
-margin-top:180px;
+margin-top:190px;
 
-width:650px;
+width:640px;
 
-padding:45px;
+padding:42px;
 
-border-radius:26px;
+border-radius:24px;
 
-background:rgba(255,248,236,.92);
+background:rgba(255,248,236,.90);
 
 backdrop-filter:blur(10px);
 
-border:4px solid rgba(255,255,255,.9);
+border:4px solid rgba(255,255,255,.8);
 
 box-shadow:
 
 0 25px 60px rgba(0,0,0,.45);
+
+}
+
+.panel::before{
+
+content:"";
+
+position:absolute;
+
+left:12px;
+
+right:12px;
+
+top:12px;
+
+bottom:12px;
+
+border-radius:18px;
+
+border:2px solid rgba(160,80,30,.20);
+
+pointer-events:none;
 
 }
 
@@ -228,13 +242,11 @@ text-align:center;
 
 font-size:30px;
 
-letter-spacing:6px;
+letter-spacing:5px;
 
 color:#8f2c18;
 
-margin-bottom:30px;
-
-text-transform:uppercase;
+margin-bottom:28px;
 
 }
 
@@ -248,19 +260,21 @@ font-size:18px;
 
 border-radius:14px;
 
-border:2px solid #c5b198;
+border:2px solid #c9b39c;
 
 outline:none;
 
-transition:.25s;
+transition:.3s;
+
+background:white;
 
 }
 
 .url:focus{
 
-border-color:#cf4424;
+border-color:#cf4323;
 
-box-shadow:0 0 20px rgba(207,68,36,.25);
+box-shadow:0 0 20px rgba(207,67,35,.3);
 
 }
 
@@ -272,15 +286,17 @@ width:100%;
 
 padding:20px;
 
+border:none;
+
+border-radius:14px;
+
+cursor:pointer;
+
 font-size:26px;
 
 font-weight:700;
 
-border:none;
-
-border-radius:16px;
-
-cursor:pointer;
+letter-spacing:3px;
 
 background:
 
@@ -288,17 +304,15 @@ linear-gradient(
 
 180deg,
 
-#ef6438,
+#ef6a3d,
 
-#cf4424,
+#cf4323,
 
-#9d240d
+#a02610
 
 );
 
 color:white;
-
-letter-spacing:3px;
 
 transition:.25s;
 
@@ -307,6 +321,10 @@ transition:.25s;
 .convert:hover{
 
 transform:translateY(-3px);
+
+box-shadow:
+
+0 10px 30px rgba(0,0,0,.35);
 
 }
 
@@ -318,6 +336,8 @@ display:flex;
 
 justify-content:space-between;
 
+align-items:center;
+
 font-size:18px;
 
 font-weight:600;
@@ -328,7 +348,7 @@ color:#333;
 
 .footer{
 
-margin-top:28px;
+margin-top:30px;
 
 text-align:center;
 
@@ -342,11 +362,71 @@ text-transform:uppercase;
 
 }
 
+.panel{
+
+animation:panelIn .8s ease;
+
+}
+
+.logo{
+
+animation:floatLogo 6s ease-in-out infinite;
+
+}
+
+@keyframes panelIn{
+
+0%{
+
+opacity:0;
+
+transform:translateY(35px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes floatLogo{
+
+0%{
+
+transform:translateX(-50%) translateY(0px);
+
+}
+
+50%{
+
+transform:translateX(-50%) translateY(-8px);
+
+}
+
+100%{
+
+transform:translateX(-50%) translateY(0px);
+
+}
+
+}
+
 @media(max-width:800px){
 
 .logo h1{
 
 font-size:72px;
+
+}
+
+.logo span{
+
+font-size:48px;
 
 }
 
@@ -378,9 +458,7 @@ margin-top:220px;
 
 flex-direction:column;
 
-gap:12px;
-
-text-align:center;
+gap:14px;
 
 }
 
@@ -394,64 +472,77 @@ text-align:center;
 
 <div class="logo">
 
-    <h1>
-        YT <span>to</span> MP3
-    </h1>
+<h1>
 
-    <div class="subtitle">
-        Audio Extraction Terminal
-    </div>
+YT <span>to</span> MP3
 
-    <div class="creator">
-        DE LOS CREADORES DE GUFFIN X SPACE BROOM 4
-    </div>
+</h1>
+
+<div class="subtitle">
+
+Audio Extraction Terminal
 
 </div>
 
+<div class="creator">
+
+DE LOS CREADORES DE GUFFIN X SPACE BROOM 4
+
+</div>
+
+</div>
 
 <div class="panel">
 
-    <h2>
-        CONVERT YOUTUBE TO MP3
-    </h2>
+<h2>
 
-    <form action="/convert" method="POST">
+CONVERT YOUTUBE TO MP3
 
-        <input
-            class="url"
-            type="text"
-            name="url"
-            placeholder="https://www.youtube.com/watch?v=..."
-            required>
+</h2>
 
-        <button
-            class="convert"
-            type="submit">
+<form action="/convert" method="POST">
 
-            START CONVERSION
+<input
 
-        </button>
+class="url"
 
-    </form>
+type="text"
 
+name="url"
 
-    <div class="features">
+placeholder="https://www.youtube.com/watch?v=..."
 
-        <div>🎵 HIGH QUALITY</div>
+required>
 
-        <div>⚡ FAST</div>
+<button
 
-        <div>💿 192 KBPS</div>
+class="convert"
 
-        <div>🆓 FREE</div>
+type="submit">
 
-    </div>
+START CONVERSION
 
-    <div class="footer">
+</button>
 
-        DE LUXE STATION · 2026
+</form>
 
-    </div>
+<div class="features">
+
+<div>🎵 HIGH QUALITY</div>
+
+<div>⚡ FAST</div>
+
+<div>💿 MP3 192 KBPS</div>
+
+<div>🆓 FREE</div>
+
+</div>
+
+<div class="footer">
+
+POWERED BY GUFFIN X SPACE BROOM 4
+
+</div>
 
 </div>
 
