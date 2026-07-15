@@ -7,111 +7,152 @@ DOWNLOAD_FOLDER = '/tmp/downloads'
 if not os.path.exists(DOWNLOAD_FOLDER):
     os.makedirs(DOWNLOAD_FOLDER)
 
-# Diseño retro años 50 con paleta de colores del atardecer de Salt Lake City
+# Diseño industrial de 1950 con letras 3D de hierro y fondo real del atardecer en SLC
 HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YT to MP3 - Retro Converter</title>
-    <!-- Importamos tipografías de estilo mid-century / retro de los años 50 -->
+    <title>YT to MP3 - 1950 Industrial Iron</title>
+    <!-- Cargamos fuentes tipográficas pesadas de estilo bloque industrial clásico -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Lobster&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Alfa+Slab+One&family=Lilita+One&family=Oswald:wght@700&display=swap" rel="stylesheet">
     
     <style>
         body { 
-            font-family: 'Oswald', sans-serif; 
-            /* Degradado lineal que imita un atardecer profundo en el desierto de Utah */
-            background: linear-gradient(180deg, #1e112a 0%, #3a1c3f 25%, #772b44 50%, #b8413a 75%, #e07641 100%);
-            background-attachment: fixed;
-            color: #fdf6e2; 
+            margin: 0;
+            padding: 0;
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            height: 100vh; 
-            margin: 0; 
+            height: 100vh;
+            /* Imagen real de fondo inspirada en tu toma aérea del atardecer de Salt Lake City */
+            background: linear-gradient(rgba(30, 17, 42, 0.4), rgba(58, 28, 63, 0.45)), 
+                        url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Oswald', sans-serif;
         }
         
-        .card { 
-            background: #fdf6e2; /* Color crema suave vintage para la tarjeta */
-            padding: 50px 40px; 
-            border-radius: 4px; 
-            text-align: center; 
-            max-width: 480px; 
-            width: 90%; 
-            border: 4px solid #1e112a; 
-            /* Sombra paralela sólida y gruesa típica del diseño gráfico de 1950 */
-            box-shadow: 12px 12px 0px #1e112a; 
+        .header-container {
+            position: absolute;
+            top: 5vh;
+            width: 100%;
+            text-align: center;
         }
-        
+
+        /* TÍTULO ENORME DE HIERRO EN 3D ESTILO 1950 */
         h1 { 
-            font-family: 'Lobster', cursive;
-            color: #b8413a; 
-            font-size: 72px; /* Letras mucho más grandes */
-            margin: 0 0 10px 0; 
-            line-height: 1.1;
-            font-weight: normal;
-            /* Efecto de relieve retro usando sombras de texto repetidas */
-            text-shadow: 2px 2px 0px #fdf6e2, 5px 5px 0px #1e112a;
+            font-family: 'Alfa Slab One', cursive;
+            font-size: 90px; /* Enorme arriba */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            letter-spacing: -2px;
+            color: #2b2b2a; /* Tono hierro oscuro envejecido */
+            text-transform: uppercase;
+            line-height: 0.9;
+            
+            /* Capas de sombras pesadas e inclinadas simulando relieve tridimensional de metal macizo */
+            text-shadow: 
+                1px 1px 0px #3d3d3c,
+                2px 2px 0px #1a1a19,
+                3px 3px 0px #1a1a19,
+                4px 4px 0px #111110,
+                5px 5px 0px #111110,
+                6px 6px 0px #090909,
+                7px 7px 0px #090909,
+                8px 8px 15px rgba(0, 0, 0, 0.8),
+                12px 12px 30px rgba(0, 0, 0, 0.6);
+        }
+        
+        /* Modificador específico exigido para el "to" en minúsculas */
+        h1 span.lowercase-to {
+            text-transform: lowercase;
+            font-family: 'Lilita One', sans-serif;
+            font-size: 75px;
+            color: #d1cdc4; /* Contraste metálico más claro o galvanizado */
+            margin: 0 10px;
+            text-shadow: 
+                1px 1px 0px #a3a099,
+                2px 2px 0px #1a1a19,
+                3px 3px 0px #1a1a19,
+                4px 4px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        .card { 
+            background: rgba(253, 246, 226, 0.93); /* Tarjeta color crema vintage con ligera transparencia */
+            padding: 40px; 
+            border-radius: 2px; 
+            text-align: center; 
+            max-width: 440px; 
+            width: 90%; 
+            border: 4px solid #1a1a19; 
+            box-shadow: 10px 10px 0px #1a1a19, 0px 20px 40px rgba(0,0,0,0.5); 
+            margin-top: 15vh; /* Ajuste para dejar espacio al gran letrero superior */
         }
         
         p { 
-            color: #1e112a; 
-            font-size: 16px; 
+            color: #1a1a19; 
+            font-size: 15px; 
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             font-weight: 700;
-            margin-bottom: 35px; 
+            margin: 0 0 30px 0;
+            border-bottom: 2px dashed #1a1a19;
+            padding-bottom: 15px;
         }
         
         input[type="text"] { 
             width: 100%; 
             padding: 14px; 
-            border: 3px solid #1e112a; 
+            border: 3px solid #1a1a19; 
             background: #ffffff; 
-            color: #1e112a; 
+            color: #1a1a19; 
             border-radius: 0px; 
-            font-size: 15px; 
+            font-size: 14px; 
             box-sizing: border-box; 
             font-family: 'Oswald', sans-serif;
             text-align: center;
+            font-weight: bold;
         }
         
         input[type="text"]:focus { 
             outline: none;
-            background: #fff9e6;
-            border-color: #b8413a;
+            background: #fffdf5;
+            border-color: #8c271e;
         }
         
         button { 
-            background: #e07641; 
-            color: #1e112a; 
-            border: 3px solid #1e112a; 
+            background: #cf483a; /* Botón rojo óxido clásico */
+            color: #fdf6e2; 
+            border: 3px solid #1a1a19; 
             width: 100%; 
             padding: 15px; 
             margin-top: 25px; 
-            font-size: 20px; 
+            font-size: 18px; 
             font-weight: 700; 
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             border-radius: 0px; 
             cursor: pointer; 
-            box-shadow: 4px 4px 0px #1e112a;
+            box-shadow: 4px 4px 0px #1a1a19;
             transition: all 0.1s ease;
         }
         
         button:hover { 
             transform: translate(2px, 2px); 
-            box-shadow: 2px 2px 0px #1e112a;
-            background: #f08953;
+            box-shadow: 2px 2px 0px #1a1a19;
+            background: #e05345;
         }
         
         .footer { 
-            margin-top: 35px; 
-            font-size: 12px; 
-            color: #772b44; 
+            margin-top: 30px; 
+            font-size: 11px; 
+            color: #57544d; 
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 700;
@@ -119,15 +160,21 @@ HTML_TEMPLATE = """
     </style>
 </head>
 <body>
+
+    <div class="header-container">
+        <!-- Letras enormes en mayúsculas menos "to" -->
+        <h1>YT <span class="lowercase-to">to</span> MP3</h1>
+    </div>
+
     <div class="card">
-        <h1>YT to MP3</h1>
-        <p>High Quality Audio Extraction</p>
+        <p>AUDIO EXTRACTION TERMINAL</p>
         <form action="/convertir" method="POST">
             <input type="text" name="url" placeholder="PASTE YOUTUBE LINK HERE" required>
-            <button type="submit">Convert & Download</button>
+            <button type="submit">START CONVERSION</button>
         </form>
-        <div class="footer">Salt Lake City Transmissions</div>
+        <div class="footer">SALT LAKE CITY • UTAH OUTPOST</div>
     </div>
+
 </body>
 </html>
 """
