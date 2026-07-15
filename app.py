@@ -7,18 +7,18 @@ DOWNLOAD_FOLDER = '/tmp/downloads'
 if not os.path.exists(DOWNLOAD_FOLDER):
     os.makedirs(DOWNLOAD_FOLDER)
 
-# Diseño industrial de 1950 con letras 3D de hierro y fondo real del atardecer en SLC
+# Diseño definitivo años 50: letras cromadas tipo emblema de coche clásico y foto nítida de SLC
 HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YT to MP3 - 1950 Industrial Iron</title>
-    <!-- Cargamos fuentes tipográficas pesadas de estilo bloque industrial clásico -->
+    <title>YT to MP3 - De Luxe Chrome Station</title>
+    <!-- Cargamos fuentes cursivas estilizadas y gruesas inspiradas en emblemas vintage -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Alfa+Slab+One&family=Lilita+One&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Playfair+Display:ital,wght@1,900&family=Shrikhand&family=Oswald:wght@700&display=swap" rel="stylesheet">
     
     <style>
         body { 
@@ -28,90 +28,97 @@ HTML_TEMPLATE = """
             justify-content: center; 
             align-items: center; 
             height: 100vh;
-            /* Imagen real de fondo inspirada en tu toma aérea del atardecer de Salt Lake City */
-            background: linear-gradient(rgba(30, 17, 42, 0.4), rgba(58, 28, 63, 0.45)), 
-                        url('https://unsplash.com');
+            /* Foto nítida en alta definición del atardecer real de Salt Lake City */
+            background: url('https://unsplash.com') no-repeat center center fixed;
             background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
             font-family: 'Oswald', sans-serif;
+            overflow: hidden;
         }
         
         .header-container {
             position: absolute;
-            top: 5vh;
+            top: 6vh;
             width: 100%;
             text-align: center;
+            z-index: 10;
         }
 
-        /* TÍTULO ENORME DE HIERRO EN 3D ESTILO 1950 */
+        /* LETRAS MUY GRUESAS ESTILO EMBLEMA CROMADO "DE LUXE" DE 1950 */
         h1 { 
-            font-family: 'Alfa Slab One', cursive;
-            font-size: 90px; /* Enorme arriba */
+            font-family: 'Shrikhand', cursive;
+            font-size: 100px; /* Enorme arriba */
             margin: 0;
             padding: 0;
             text-align: center;
-            letter-spacing: -2px;
-            color: #2b2b2a; /* Tono hierro oscuro envejecido */
-            text-transform: uppercase;
-            line-height: 0.9;
+            letter-spacing: -1px;
             
-            /* Capas de sombras pesadas e inclinadas simulando relieve tridimensional de metal macizo */
-            text-shadow: 
-                1px 1px 0px #3d3d3c,
-                2px 2px 0px #1a1a19,
-                3px 3px 0px #1a1a19,
-                4px 4px 0px #111110,
-                5px 5px 0px #111110,
-                6px 6px 0px #090909,
-                7px 7px 0px #090909,
-                8px 8px 15px rgba(0, 0, 0, 0.8),
-                12px 12px 30px rgba(0, 0, 0, 0.6);
+            /* Efecto de degradado metálico (Cromo Espejo) */
+            background: linear-gradient(
+                to bottom, 
+                #ffffff 0%, 
+                #e2e8f0 45%, 
+                #475569 50%, 
+                #0f172a 55%, 
+                #cbd5e1 60%, 
+                #ffffff 100%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            /* Relieve biselado tridimensional muy grueso y pesado */
+            filter: drop-shadow(2px 2px 0px #ffffff) 
+                    drop-shadow(-1px -1px 0px #475569)
+                    drop-shadow(4px 4px 0px #0f172a)
+                    drop-shadow(8px 8px 15px rgba(0,0,0,0.7));
+            
+            line-height: 1;
         }
         
-        /* Modificador específico exigido para el "to" en minúsculas */
+        /* El "to" intercalado en minúsculas con estilo caligráfico de los 50 */
         h1 span.lowercase-to {
-            text-transform: lowercase;
-            font-family: 'Lilita One', sans-serif;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 900;
             font-size: 75px;
-            color: #d1cdc4; /* Contraste metálico más claro o galvanizado */
             margin: 0 10px;
-            text-shadow: 
-                1px 1px 0px #a3a099,
-                2px 2px 0px #1a1a19,
-                3px 3px 0px #1a1a19,
-                4px 4px 5px rgba(0, 0, 0, 0.6);
+            background: linear-gradient(to bottom, #ffffff 0%, #cbd5e1 50%, #475569 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(2px 2px 0px #0f172a);
         }
 
         .card { 
-            background: rgba(253, 246, 226, 0.93); /* Tarjeta color crema vintage con ligera transparencia */
+            background: rgba(253, 246, 226, 0.94); /* Tarjeta color crema vintage sutil */
             padding: 40px; 
-            border-radius: 2px; 
+            border-radius: 4px; 
             text-align: center; 
             max-width: 440px; 
             width: 90%; 
-            border: 4px solid #1a1a19; 
-            box-shadow: 10px 10px 0px #1a1a19, 0px 20px 40px rgba(0,0,0,0.5); 
-            margin-top: 15vh; /* Ajuste para dejar espacio al gran letrero superior */
+            /* Estilo caja de taller mecánico antiguo */
+            border: 4px solid #0f172a; 
+            box-shadow: 12px 12px 0px #0f172a, 0px 20px 50px rgba(0,0,0,0.5); 
+            margin-top: 22vh; /* Deja espacio al gran letrero cromado */
+            position: relative;
+            z-index: 5;
         }
         
         p { 
-            color: #1a1a19; 
+            color: #0f172a; 
             font-size: 15px; 
             text-transform: uppercase;
             letter-spacing: 3px;
             font-weight: 700;
-            margin: 0 0 30px 0;
-            border-bottom: 2px dashed #1a1a19;
+            margin: 10px 0 30px 0;
+            border-bottom: 2px dashed #0f172a;
             padding-bottom: 15px;
         }
         
         input[type="text"] { 
             width: 100%; 
             padding: 14px; 
-            border: 3px solid #1a1a19; 
+            border: 3px solid #0f172a; 
             background: #ffffff; 
-            color: #1a1a19; 
+            color: #0f172a; 
             border-radius: 0px; 
             font-size: 14px; 
             box-sizing: border-box; 
@@ -122,14 +129,14 @@ HTML_TEMPLATE = """
         
         input[type="text"]:focus { 
             outline: none;
-            background: #fffdf5;
-            border-color: #8c271e;
+            background: #fffef9;
+            border-color: #cf483a;
         }
         
         button { 
-            background: #cf483a; /* Botón rojo óxido clásico */
+            background: #cf483a; /* Rojo óxido vintage */
             color: #fdf6e2; 
-            border: 3px solid #1a1a19; 
+            border: 3px solid #0f172a; 
             width: 100%; 
             padding: 15px; 
             margin-top: 25px; 
@@ -139,20 +146,20 @@ HTML_TEMPLATE = """
             letter-spacing: 2px;
             border-radius: 0px; 
             cursor: pointer; 
-            box-shadow: 4px 4px 0px #1a1a19;
+            box-shadow: 4px 4px 0px #0f172a;
             transition: all 0.1s ease;
         }
         
         button:hover { 
             transform: translate(2px, 2px); 
-            box-shadow: 2px 2px 0px #1a1a19;
-            background: #e05345;
+            box-shadow: 2px 2px 0px #0f172a;
+            background: #b5392d;
         }
         
         .footer { 
             margin-top: 30px; 
             font-size: 11px; 
-            color: #57544d; 
+            color: #475569; 
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 700;
@@ -162,7 +169,7 @@ HTML_TEMPLATE = """
 <body>
 
     <div class="header-container">
-        <!-- Letras enormes en mayúsculas menos "to" -->
+        <!-- Título enorme con efecto cromado biselado, todo en mayúsculas menos "to" -->
         <h1>YT <span class="lowercase-to">to</span> MP3</h1>
     </div>
 
@@ -172,7 +179,7 @@ HTML_TEMPLATE = """
             <input type="text" name="url" placeholder="PASTE YOUTUBE LINK HERE" required>
             <button type="submit">START CONVERSION</button>
         </form>
-        <div class="footer">SALT LAKE CITY • UTAH OUTPOST</div>
+        <div class="footer">DE LUXE DESERT EDITION</div>
     </div>
 
 </body>
