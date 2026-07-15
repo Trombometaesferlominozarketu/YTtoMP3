@@ -7,18 +7,18 @@ DOWNLOAD_FOLDER = '/tmp/downloads'
 if not os.path.exists(DOWNLOAD_FOLDER):
     os.makedirs(DOWNLOAD_FOLDER)
 
-# Diseño definitivo años 50: letras cromadas tipo emblema de coche clásico y foto nítida de SLC
+# Diseño con tipografía unificada, recta, inclinada y maciza estilo emblema 1950
 HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YT to MP3 - De Luxe Chrome Station</title>
-    <!-- Cargamos fuentes cursivas estilizadas y gruesas inspiradas en emblemas vintage -->
+    <title>YT to MP3 - De Luxe Station</title>
+    <!-- Importamos una fuente ultra-gruesa y geométrica ideal para el efecto bloque -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Playfair+Display:ital,wght@1,900&family=Shrikhand&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Archivo+Black&family=Oswald:wght@700&display=swap" rel="stylesheet">
     
     <style>
         body { 
@@ -28,76 +28,77 @@ HTML_TEMPLATE = """
             justify-content: center; 
             align-items: center; 
             height: 100vh;
-            /* Foto nítida en alta definición del atardecer real de Salt Lake City */
-            background: url('https://unsplash.com') no-repeat center center fixed;
+            /* Atardecer real en Salt Lake City sin filtros que lo oscurezcan */
+            background-image: url('https://wikimedia.org');
             background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             font-family: 'Oswald', sans-serif;
             overflow: hidden;
         }
         
         .header-container {
             position: absolute;
-            top: 6vh;
+            top: 8vh;
             width: 100%;
             text-align: center;
             z-index: 10;
         }
 
-        /* LETRAS MUY GRUESAS ESTILO EMBLEMA CROMADO "DE LUXE" DE 1950 */
+        /* GRAFÍA UNIFICADA: LETRAS RECTAS, MUY GRUESAS E INCLINADAS EN BLOQUE */
         h1 { 
-            font-family: 'Shrikhand', cursive;
-            font-size: 100px; /* Enorme arriba */
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            letter-spacing: -1px;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 80px; /* Tamaño masivo uniforme */
+            margin: 0 auto;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: -4px; /* Letras muy juntas y compactas */
+            font-style: normal;
             
-            /* Efecto de degradado metálico (Cromo Espejo) */
+            /* Inclinación exacta y paralela para todo el bloque de texto */
+            transform: skewX(-15deg); 
+            
+            /* Efecto metálico cromado líquido reflectante */
             background: linear-gradient(
                 to bottom, 
                 #ffffff 0%, 
-                #e2e8f0 45%, 
-                #475569 50%, 
-                #0f172a 55%, 
-                #cbd5e1 60%, 
+                #f1f5f9 40%, 
+                #475569 48%, 
+                #0f172a 52%, 
+                #cbd5e1 65%, 
                 #ffffff 100%
             );
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             
-            /* Relieve biselado tridimensional muy grueso y pesado */
-            filter: drop-shadow(2px 2px 0px #ffffff) 
+            /* Relieve macizo tridimensional biselado idéntico en cada letra */
+            filter: drop-shadow(2px 2px 0px #ffffff)
                     drop-shadow(-1px -1px 0px #475569)
-                    drop-shadow(4px 4px 0px #0f172a)
-                    drop-shadow(8px 8px 15px rgba(0,0,0,0.7));
+                    drop-shadow(5px 5px 0px #0f172a)
+                    drop-shadow(8px 8px 12px rgba(0,0,0,0.6));
             
             line-height: 1;
         }
         
-        /* El "to" intercalado en minúsculas con estilo caligráfico de los 50 */
+        /* Modificador estricto: "to" en minúsculas pero con la misma tipografía, grosor e inclinación */
         h1 span.lowercase-to {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-weight: 900;
-            font-size: 75px;
-            margin: 0 10px;
-            background: linear-gradient(to bottom, #ffffff 0%, #cbd5e1 50%, #475569 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(2px 2px 0px #0f172a);
+            text-transform: lowercase;
+            font-size: 70px; /* Ligeramente ajustado para armonizar la línea superior */
+            margin: 0 4px;
+            letter-spacing: -6px;
         }
 
         .card { 
-            background: rgba(253, 246, 226, 0.94); /* Tarjeta color crema vintage sutil */
+            background: rgba(253, 246, 226, 0.94); /* Fondo crema limpio */
             padding: 40px; 
-            border-radius: 4px; 
+            border-radius: 2px; 
             text-align: center; 
             max-width: 440px; 
             width: 90%; 
-            /* Estilo caja de taller mecánico antiguo */
             border: 4px solid #0f172a; 
             box-shadow: 12px 12px 0px #0f172a, 0px 20px 50px rgba(0,0,0,0.5); 
-            margin-top: 22vh; /* Deja espacio al gran letrero cromado */
+            margin-top: 24vh; 
             position: relative;
             z-index: 5;
         }
@@ -134,7 +135,7 @@ HTML_TEMPLATE = """
         }
         
         button { 
-            background: #cf483a; /* Rojo óxido vintage */
+            background: #cf483a; 
             color: #fdf6e2; 
             border: 3px solid #0f172a; 
             width: 100%; 
@@ -169,7 +170,7 @@ HTML_TEMPLATE = """
 <body>
 
     <div class="header-container">
-        <!-- Título enorme con efecto cromado biselado, todo en mayúsculas menos "to" -->
+        <!-- Todo el bloque comparte la misma fuente exacta e inclinación geométrica -->
         <h1>YT <span class="lowercase-to">to</span> MP3</h1>
     </div>
 
@@ -179,7 +180,7 @@ HTML_TEMPLATE = """
             <input type="text" name="url" placeholder="PASTE YOUTUBE LINK HERE" required>
             <button type="submit">START CONVERSION</button>
         </form>
-        <div class="footer">DE LUXE DESERT EDITION</div>
+        <div class="footer">SALT LAKE CITY OUTPOST</div>
     </div>
 
 </body>
