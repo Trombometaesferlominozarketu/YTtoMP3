@@ -1,1 +1,460 @@
 
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>YT to MP3 | De Luxe Station</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html,
+body{
+width:100%;
+height:100%;
+overflow:hidden;
+font-family:'Oswald',sans-serif;
+}
+
+body{
+
+background:url("/static/background.webp") center center no-repeat;
+
+background-size:cover;
+
+position:relative;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+/* Oscurece un poco el fondo */
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+
+180deg,
+
+rgba(0,0,0,.10),
+
+rgba(0,0,0,.28),
+
+rgba(0,0,0,.42)
+
+);
+
+backdrop-filter:blur(1px);
+
+}
+
+/************************************************
+
+LOGO
+
+************************************************/
+
+.logo{
+
+position:absolute;
+
+top:40px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+z-index:50;
+
+text-align:center;
+
+}
+
+.logo h1{
+
+font-size:110px;
+
+font-weight:700;
+
+letter-spacing:3px;
+
+line-height:1;
+
+background:
+
+linear-gradient(
+
+180deg,
+
+#ffffff,
+
+#efefef 22%,
+
+#bdbdbd 38%,
+
+#4f4f4f 50%,
+
+#dadada 62%,
+
+#ffffff 100%
+
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+filter:
+
+drop-shadow(0 2px 0 white)
+
+drop-shadow(0 4px 4px rgba(0,0,0,.65));
+
+}
+
+.logo h1 span{
+
+font-family:'Pacifico',cursive;
+
+font-size:70px;
+
+margin:0 12px;
+
+color:#cf4424;
+
+-webkit-text-fill-color:#cf4424;
+
+}
+
+.subtitle{
+
+margin-top:12px;
+
+font-size:40px;
+
+font-family:'Pacifico',cursive;
+
+color:#ffe5a4;
+
+text-shadow:
+
+0 0 20px rgba(255,200,120,.35),
+
+0 3px 5px rgba(0,0,0,.55);
+
+}
+
+.creator{
+
+margin-top:16px;
+
+font-size:18px;
+
+letter-spacing:5px;
+
+font-weight:600;
+
+color:white;
+
+text-transform:uppercase;
+
+text-shadow:0 2px 8px black;
+
+}
+
+/************************************************
+
+PANEL
+
+************************************************/
+
+.panel{
+
+position:relative;
+
+z-index:20;
+
+margin-top:180px;
+
+width:650px;
+
+padding:45px;
+
+border-radius:26px;
+
+background:rgba(255,248,236,.92);
+
+backdrop-filter:blur(10px);
+
+border:4px solid rgba(255,255,255,.9);
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.45);
+
+}
+
+.panel h2{
+
+text-align:center;
+
+font-size:30px;
+
+letter-spacing:6px;
+
+color:#8f2c18;
+
+margin-bottom:30px;
+
+text-transform:uppercase;
+
+}
+
+.url{
+
+width:100%;
+
+padding:18px;
+
+font-size:18px;
+
+border-radius:14px;
+
+border:2px solid #c5b198;
+
+outline:none;
+
+transition:.25s;
+
+}
+
+.url:focus{
+
+border-color:#cf4424;
+
+box-shadow:0 0 20px rgba(207,68,36,.25);
+
+}
+
+.convert{
+
+margin-top:24px;
+
+width:100%;
+
+padding:20px;
+
+font-size:26px;
+
+font-weight:700;
+
+border:none;
+
+border-radius:16px;
+
+cursor:pointer;
+
+background:
+
+linear-gradient(
+
+180deg,
+
+#ef6438,
+
+#cf4424,
+
+#9d240d
+
+);
+
+color:white;
+
+letter-spacing:3px;
+
+transition:.25s;
+
+}
+
+.convert:hover{
+
+transform:translateY(-3px);
+
+}
+
+.features{
+
+margin-top:28px;
+
+display:flex;
+
+justify-content:space-between;
+
+font-size:18px;
+
+font-weight:600;
+
+color:#333;
+
+}
+
+.footer{
+
+margin-top:28px;
+
+text-align:center;
+
+font-size:14px;
+
+letter-spacing:4px;
+
+color:#666;
+
+text-transform:uppercase;
+
+}
+
+@media(max-width:800px){
+
+.logo h1{
+
+font-size:72px;
+
+}
+
+.subtitle{
+
+font-size:28px;
+
+}
+
+.creator{
+
+font-size:13px;
+
+letter-spacing:2px;
+
+}
+
+.panel{
+
+width:92%;
+
+padding:28px;
+
+margin-top:220px;
+
+}
+
+.features{
+
+flex-direction:column;
+
+gap:12px;
+
+text-align:center;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="logo">
+
+    <h1>
+        YT <span>to</span> MP3
+    </h1>
+
+    <div class="subtitle">
+        Audio Extraction Terminal
+    </div>
+
+    <div class="creator">
+        DE LOS CREADORES DE GUFFIN X SPACE BROOM 4
+    </div>
+
+</div>
+
+
+<div class="panel">
+
+    <h2>
+        CONVERT YOUTUBE TO MP3
+    </h2>
+
+    <form action="/convert" method="POST">
+
+        <input
+            class="url"
+            type="text"
+            name="url"
+            placeholder="https://www.youtube.com/watch?v=..."
+            required>
+
+        <button
+            class="convert"
+            type="submit">
+
+            START CONVERSION
+
+        </button>
+
+    </form>
+
+
+    <div class="features">
+
+        <div>🎵 HIGH QUALITY</div>
+
+        <div>⚡ FAST</div>
+
+        <div>💿 192 KBPS</div>
+
+        <div>🆓 FREE</div>
+
+    </div>
+
+    <div class="footer">
+
+        DE LUXE STATION · 2026
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
